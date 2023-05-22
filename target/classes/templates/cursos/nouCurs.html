@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body{
+      background-color: #cbd2d7;
+    }
+    .container {
+      display: block;
+      background-color: rgba(115, 110, 110, 0.70);
+      height: auto;
+      width: 480px;
+      margin: 10% auto;
+      padding: 30px;
+      border: rgba(115, 110, 110, 0.7) 3px groove;
+      border-radius: 10px;
+
+    }
+    button{
+      position: relative;
+      display: block;
+      width: 150px;
+      margin: 20px auto 0px;
+      height: 50px;
+      opacity: 0.9;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      padding: 8px;
+      background-color: #333333;
+      border: none;
+      border-radius: 8px;
+    }
+    button:hover{
+      background-color: #111111;
+    }
+
+    label{
+      font-size: 18px;
+    }
+    input,textarea{
+      margin-top: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      padding: 8px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    textarea{
+      height: 180px;
+      max-width: 100%;
+      min-width: 100%;
+    }
+    h1{
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+  </style>
+</head>
+<body>
+
+<br>
+
+<div class="container">
+  <h1>Nou Curs</h1>
+  <form id="form" th:action="@{/api/cursos/alta}" th:object="${curs}" method="POST">
+
+    <div class="form-group row">
+      <label for="nom" id="labelNom"><b>Titol</b></label>
+      <input type="text" placeholder="Titol" th:field="${curs.titolCurs}" id="nom">
+      <br>
+      <br>
+      <label for="cif" id="labelCif"><b>Url</b></label>
+      <input type="text" placeholder="CIF" th:field="${curs.urlCurs}" id="cif">
+      <br>
+      <br>
+      <label for="adreca" id="labelAdreca"><b>Descripció Curs</b></label>
+      <br>
+      <textarea placeholder="Descripció Curs" id="adreca" name="descCurs" rows="" th:field="${curs.descCurs}"></textarea>
+      <br>
+      <br>
+    </div>
+
+    <br>
+    <button class="btn btn-info col-2" type="submit">Enter Curs</button>
+
+  </form>
+</div>
+</body>
+
+</html>

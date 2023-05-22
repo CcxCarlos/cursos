@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Estudiants</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-left: 50px;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+    a{
+      color: #337ab7;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h3>Estudiants</h3>
+  <table>
+    <thead class="thead-dark">
+    <tr>
+      <th>Nom</th>
+      <th>Cognoms</th>
+      <th>Cursos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="estudiant : ${estudiants}">
+      <td><a th:text="${estudiant.estudiantNom}" th:href="@{'/api/estudiants/' + ${estudiant.estudiantId}}"/></td>
+      <td th:text="${estudiant.estudiantCognom}"/>
+      <td>
+        <span th:if="${estudiant.cursos.isEmpty()}">Sense curs</span>
+        <span th:each="curs, iter : ${estudiant.cursos}">
+          <span>- <span th:text="${curs.titolCurs}"></span></span>
+          <span th:unless="${iter.last}"><br></span>
+        </span>
+      </td>
+
+      <!--      <td th:text="${estudiant.curs.titolCurs}"/>-->
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

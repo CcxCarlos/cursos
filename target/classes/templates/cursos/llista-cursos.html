@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-left: 50px;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h3>Cursos</h3>
+  <table>
+    <thead class="thead-dark">
+    <tr>
+      <th>Titol</th>
+      <th>Descripció</th>
+      <th>Url</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="curs : ${cursos}">
+      <td th:text="${curs.titolCurs}"/>
+      <td th:text="${curs.descCurs}"/>
+      <td th:text="${curs.urlCurs}"/>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

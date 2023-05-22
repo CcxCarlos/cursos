@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <title>Profile</title>
+  <style>
+    .caption {
+      max-width: 100%;
+      overflow-wrap: break-word;
+      padding-right: 12px !important;
+      padding-left: 12px !important;
+    }
+    /*#cursContainer, .thumbnail, .caption{*/
+    /*  margin: auto;*/
+    /*}*/
+    #cursContainer{
+      margin: 10px;
+    }
+
+    .card-body, h1, p{
+      padding: 1px;
+    }
+    .row{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    table {
+      border-collapse: collapse;
+      margin-left: 50px;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+
+    h2{
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    #img_round{
+      width: 130px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+<section>
+  <div class="jumbotron">
+    <div class="card-body text-center">
+      <img id="img_round" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar">
+      <h1 class="valuesAlum" th:text="${estudiant.estudiantNom + ' ' + estudiant.estudiantCognom}"></h1>
+      <p class="valuesAlum" th:text="${'Identificador: ' + estudiant.estudiantId}"></p>
+    </div>
+  </div>
+</section>
+<section class="container">
+  <h2>CURSOS</h2>
+  <div class="row">
+    <div id="cursContainer" th:each="aCursos : ${estudiant.cursos}" class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3 th:text="${aCursos.cursId}"></h3>
+          <p th:text="${aCursos.titolCurs}"></p>
+          <p th:text="${aCursos.descCurs}"></p>
+          <p th:text="${aCursos.urlCurs}"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+</body>
+</html>

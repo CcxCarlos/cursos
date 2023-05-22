@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}">
+  <title>Error 404 - Page Not Found</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #dedcdc;
+    }
+    .container-error-msg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 40em;
+      text-align: center;
+    }
+    #titleError {
+      font-size: 3em;
+      color: #f44336;
+      margin-top: 0;
+    }
+    #msgError {
+      font-size: 1.2em;
+      margin-top: 50px;
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+    }
+    .align-items-center{
+      display: flex;
+      -ms-flex-align: center!important;
+      align-items: center!important;
+      flex-direction: column;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container-error-msg">
+  <h1 id="titleError">Error 404 - Page Not Found</h1>
+  <p id="msgError">No s'ha pogut trobar el recurs sol·licitat en aquest servidor. Comproveu si hi ha errors a la cerca i torneu-ho a provar.</p>
+</div>
+
+<div th:insert="~{fragments/base.html :: footer}"></div>
+
+</body>
+</html>
